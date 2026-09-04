@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atef Khelifi — Head of Data & Docteur en économie</title>
+<meta name="description" content="Leader Data (20+ ans) et Docteur en macroéconomie internationale. Architecture, ingénierie et gouvernance des plateformes data ; recherche en économie appliquée.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F7FA;--surface:#FFFFFF;--surface-2:#EEF2F8;
+    --ink:#0E1626;--ink-soft:#4A576E;--ink-faint:#8592A8;
+    --line:#E1E7F0;--line-strong:#CBD5E4;
+    --signal:#2F5BFF;--signal-ink:#1E44D8;
+    --econ:#B26A12;--econ-ink:#8A5210;
+    --radius:14px;--maxw:1080px;--grid:rgba(14,22,38,.045);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#0A0F1A;--surface:#101827;--surface-2:#161F31;
+      --ink:#E9EEF7;--ink-soft:#9BA9C0;--ink-faint:#6B7A94;
+      --line:#212C42;--line-strong:#2C3A57;
+      --signal:#6C8CFF;--signal-ink:#8AA3FF;--econ:#E0A44E;--econ-ink:#EDB86B;
+      --grid:rgba(233,238,247,.05);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0A0F1A;--surface:#101827;--surface-2:#161F31;
+    --ink:#E9EEF7;--ink-soft:#9BA9C0;--ink-faint:#6B7A94;
+    --line:#212C42;--line-strong:#2C3A57;
+    --signal:#6C8CFF;--signal-ink:#8AA3FF;--econ:#E0A44E;--econ-ink:#EDB86B;
+    --grid:rgba(233,238,247,.05);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  header.nav{position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--paper) 86%, transparent);
+    backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line);}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .brand{font-weight:600;letter-spacing:-.01em;font-size:15px}
+  .brand span{color:var(--ink-faint);font-weight:400}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{font-size:14px;color:var(--ink-soft);transition:color .15s}
+  .nav-links a:hover{color:var(--ink)}
+  .theme-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-soft);cursor:pointer;transition:.15s;}
+  .theme-btn:hover{color:var(--ink);border-color:var(--signal)}
+  @media (max-width:760px){.nav-links a{display:none}}
+
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:34px 34px;
+    -webkit-mask-image:radial-gradient(120% 80% at 20% 0%,#000 40%,transparent 88%);
+    mask-image:radial-gradient(120% 80% at 20% 0%,#000 40%,transparent 88%);}
+  .hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr 232px;gap:48px;align-items:start;padding:76px 0 64px}
+  .eyebrow{font-size:13px;color:var(--ink-soft);margin:0 0 18px;display:flex;gap:10px;align-items:center}
+  .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--signal);display:inline-block;box-shadow:0 0 0 4px color-mix(in srgb,var(--signal) 18%,transparent)}
+  h1{font-size:clamp(2.6rem,6vw,4.2rem);line-height:1.02;letter-spacing:-.03em;font-weight:700;margin:0 0 8px;}
+  .role{font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--ink-soft);font-weight:500;margin:0 0 32px;max-width:36ch}
+  .duo{display:grid;gap:12px;max-width:520px;margin-bottom:34px}
+  .duo-row{display:flex;gap:14px;align-items:baseline;padding:13px 16px;background:var(--surface);border:1px solid var(--line);border-radius:11px}
+  .duo-row b{font-weight:600;font-size:15px}
+  .duo-row .k{font-size:12px;letter-spacing:.02em;color:var(--ink-faint);min-width:74px}
+  .duo-row.data{border-left:3px solid var(--signal)}
+  .duo-row.econ{border-left:3px solid var(--econ)}
+  .duo-row p{margin:2px 0 0;font-size:13.5px;color:var(--ink-soft);line-height:1.45}
+  .bridge{font-size:13.5px;color:var(--ink-soft);max-width:520px;margin:-14px 0 30px;padding:0 0 0 14px;border-left:2px solid var(--econ);line-height:1.55}
+  .bridge b{color:var(--ink);font-weight:600}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:500;padding:11px 20px;border-radius:10px;cursor:pointer;transition:.16s;border:1px solid transparent;}
+  .btn.primary{background:var(--signal);color:#fff}
+  .btn.primary:hover{background:var(--signal-ink)}
+  .btn.ghost{background:transparent;border-color:var(--line-strong);color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--signal);color:var(--signal)}
+  .portrait{aspect-ratio:4/5;border-radius:16px;overflow:hidden;border:1px solid var(--line-strong);background:var(--surface-2);display:flex;align-items:center;justify-content:center;position:relative;}
+  .portrait .ph{text-align:center;color:var(--ink-faint);padding:20px}
+  .portrait .ph svg{opacity:.5;margin-bottom:8px}
+  .portrait .ph small{font-size:11.5px;display:block;line-height:1.4}
+  @media (max-width:820px){.hero-in{grid-template-columns:1fr;gap:34px}.portrait{max-width:220px;order:-1}}
+
+  .facts{border-bottom:1px solid var(--line);background:var(--surface)}
+  .facts-in{display:grid;grid-template-columns:repeat(4,1fr);max-width:var(--maxw);margin:0 auto}
+  .fact{padding:22px 24px;border-right:1px solid var(--line)}
+  .fact:last-child{border-right:none}
+  .fact .n{font-size:1.7rem;font-weight:700;letter-spacing:-.02em;line-height:1}
+  .fact .l{font-size:12.5px;color:var(--ink-soft);margin-top:6px}
+  @media (max-width:720px){.facts-in{grid-template-columns:repeat(2,1fr)}.fact:nth-child(2){border-right:none}.fact:nth-child(1),.fact:nth-child(2){border-bottom:1px solid var(--line)}}
+
+  section{padding:74px 0;border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:38px}
+  .sec-head .idx{font-size:13px;color:var(--ink-faint)}
+  .sec-head h2{font-size:clamp(1.5rem,3.2vw,2rem);letter-spacing:-.02em;font-weight:700;margin:0}
+  .lead{color:var(--ink-soft);max-width:64ch;margin:-18px 0 34px;font-size:1.02rem}
+
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:44px}
+  .about-grid p{margin:0 0 16px;color:var(--ink-soft);max-width:60ch}
+  .about-grid p strong{color:var(--ink);font-weight:600}
+  .aside{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .aside h4{margin:0 0 14px;font-size:13px;color:var(--ink-faint);font-weight:600;letter-spacing:.02em}
+  .aside ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+  .aside li{font-size:14px;display:grid;gap:1px;color:var(--ink-soft)}
+  .aside li b{color:var(--ink);font-weight:600}
+  .aside li span{font-size:12.5px;color:var(--ink-faint)}
+  @media (max-width:800px){.about-grid{grid-template-columns:1fr;gap:28px}}
+
+  .tl{display:grid;gap:0}
+  .job{display:grid;grid-template-columns:170px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--line)}
+  .job:first-child{border-top:none}
+  .job .when{font-size:13px;color:var(--ink-soft);padding-top:3px}
+  .job .when .dot{width:8px;height:8px;border-radius:50%;background:var(--signal);display:inline-block;margin-right:8px}
+  .job .when .loc{display:block;color:var(--ink-faint);font-size:12px;margin-top:4px;padding-left:16px}
+  .job h3{margin:0 0 3px;font-size:1.12rem;font-weight:600;letter-spacing:-.01em}
+  .job .co{color:var(--signal);font-weight:600;font-size:.95rem;margin-bottom:12px}
+  .job .co em{color:var(--ink-faint);font-style:normal;font-weight:400}
+  .job ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:14.5px;display:grid;gap:5px}
+  .job ul li::marker{color:var(--ink-faint)}
+  .job .award{color:var(--econ-ink);font-weight:600}
+  @media (max-width:640px){.job{grid-template-columns:1fr;gap:8px}.job .when .loc{display:inline;padding-left:8px}}
+
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .skillcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .skillcard h4{margin:0 0 14px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:9px}
+  .skillcard h4::before{content:"";width:9px;height:9px;border-radius:2px;background:var(--signal)}
+  .tags{display:flex;flex-wrap:wrap;gap:7px}
+  .tag{font-size:12.5px;padding:5px 10px;border-radius:7px;background:var(--surface-2);color:var(--ink-soft);border:1px solid var(--line)}
+
+  #recherche .sec-head h2::after{content:"";display:inline-block;width:34px;height:3px;background:var(--econ);margin-left:14px;vertical-align:middle;border-radius:2px}
+  .pub{display:grid;grid-template-columns:130px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--line)}
+  .pub:first-of-type{border-top:none}
+  .pub .venue{font-size:12.5px;color:var(--econ-ink);font-weight:500}
+  .pub .yr{font-size:12.5px;color:var(--ink-faint);margin-top:3px}
+  .pub h3{margin:0 0 6px;font-size:1.05rem;font-weight:600;line-height:1.35}
+  .pub p{margin:0 0 10px;color:var(--ink-soft);font-size:14.5px;max-width:64ch}
+  .pub .links{display:flex;gap:16px;font-size:13px;flex-wrap:wrap}
+  .pub .links a{color:var(--econ-ink);border-bottom:1px solid color-mix(in srgb,var(--econ) 40%,transparent);padding-bottom:1px}
+  .pub .links a:hover{color:var(--ink)}
+  .pub .links .todo{border:none}
+  @media (max-width:640px){.pub{grid-template-columns:1fr;gap:8px}}
+
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .proj{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;transition:.16s}
+  .proj:hover{border-color:var(--signal)}
+  .proj .top{display:flex;justify-content:space-between;align-items:start;gap:10px;margin-bottom:12px}
+  .proj h3{margin:0;font-size:1.05rem;font-weight:600}
+  .proj .lang{font-size:11.5px;color:var(--ink-faint);white-space:nowrap}
+  .proj p{margin:0 0 16px;color:var(--ink-soft);font-size:14px;flex:1}
+  .proj a.repo{font-size:13px;color:var(--signal);font-weight:500}
+  .proj a.repo:hover{color:var(--signal-ink)}
+
+  #contact{border-bottom:none}
+  .contact-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:40px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+  .contact-card h2{margin:0 0 8px;font-size:1.7rem;letter-spacing:-.02em}
+  .contact-card p{margin:0;color:var(--ink-soft);max-width:44ch}
+  .contact-links{display:grid;gap:10px;min-width:250px}
+  .clink{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;font-size:14px;transition:.15s}
+  .clink:hover{border-color:var(--signal);color:var(--signal)}
+  .clink svg{flex:none;color:var(--ink-faint)}
+  .clink:hover svg{color:var(--signal)}
+  @media (max-width:720px){.contact-card{grid-template-columns:1fr;padding:28px}}
+
+  footer{padding:30px 0;color:var(--ink-faint);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  .todo{color:var(--econ-ink);background:color-mix(in srgb,var(--econ) 12%,transparent);border-radius:5px;padding:1px 6px;font-size:12.5px;font-weight:500}
+  .note{background:color-mix(in srgb,var(--econ) 10%,transparent);border:1px dashed color-mix(in srgb,var(--econ) 45%,transparent);border-radius:12px;padding:14px 18px;margin:22px auto 0;max-width:var(--maxw);font-size:13.5px;color:var(--econ-ink)}
+  .note b{font-weight:600}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <div class="brand">Atef Khelifi <span>· Data &amp; Économie</span></div>
+    <nav class="nav-links">
+      <a href="#apropos">Profil</a>
+      <a href="#experience">Expérience</a>
+      <a href="#competences">Compétences</a>
+      <a href="#recherche">Recherche</a>
+      <a href="#projets">Projets</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeToggle" aria-label="Changer de thème">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <p class="eyebrow"><i></i> Ouvert aux opportunités de direction Data</p>
+      <h1>Atef Khelifi</h1>
+      <p class="role">Head of Data &amp; Docteur en macroéconomie. Un même métier — modéliser à partir des données pour décider et prévoir — à l'échelle de l'entreprise comme des économies.</p>
+
+      <div class="duo">
+        <div class="duo-row data">
+          <span class="k mono">Terrain</span>
+          <div><b>Head of Data — 20 ans</b><p>Aujourd'hui chez Empruntis, je pilote les grands projets de création et de restructuration de plateformes data et je manage des équipes transverses — ingénieurs, analysts, scientists.</p></div>
+        </div>
+        <div class="duo-row econ">
+          <span class="k mono">Recherche</span>
+          <div><b>Docteur en macroéconomie</b><p>Modélisation macroéconomique par méthodes bayésiennes. Veille scientifique et contribution à la recherche en modélisation et prévision.</p></div>
+        </div>
+      </div>
+
+      <p class="bridge"><b>Un même fil conducteur :</b> la modélisation quantitative. Le chercheur nourrit le praticien, et réciproquement.</p>
+
+      <div class="cta-row">
+        <a class="btn primary" href="#contact">Me contacter</a>
+        <a class="btn ghost" href="#" id="cvBtn">Télécharger le CV (PDF)</a>
+      </div>
+    </div>
+
+    <div class="portrait">
+      <div class="ph">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6"/></svg>
+        <small>[ Ta photo ]<br>portrait tête-épaules,<br>fond neutre</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FACT STRIP -->
+<div class="facts">
+  <div class="facts-in">
+    <div class="fact"><div class="n">20+</div><div class="l">ans en Data</div></div>
+    <div class="fact"><div class="n">PhD</div><div class="l">Macroéconomie internationale · Lille</div></div>
+    <div class="fact"><div class="n">2023</div><div class="l">publié dans <em>Economic Modelling</em></div></div>
+    <div class="fact"><div class="n">4</div><div class="l">secteurs : télécom · assurance · énergie · banque</div></div>
+  </div>
+</div>
+
+<div class="note wrap"><b>Note (visible seulement par toi) :</b> il reste à ajouter ta <b>photo</b>, tes <b>liens GitHub</b> (dépôts) et à confirmer le statut de l'article « croissance sectorielle française ». Dis-moi et je complète.</div>
+
+<!-- ABOUT -->
+<section id="apropos">
+  <div class="wrap">
+    <div class="sec-head"><span class="idx mono">01</span><h2>Profil</h2></div>
+    <div class="about-grid">
+      <div>
+        <p>Leader Data avec plus de 20 ans d'expérience dans la <strong>structuration, la gouvernance et la valorisation stratégique des actifs data</strong>. J'accompagne les organisations dans la définition et le déploiement de leur vision Data, en alignant architecture, analytics et intelligence artificielle avec les enjeux métiers.</p>
+        <p>Mon expertise couvre l'ensemble du cycle de vie de la donnée : de l'urbanisation des systèmes et la mise en place de <strong>plateformes modernes</strong> (Data Lake / Warehouse / Lakehouse) jusqu'à l'exploitation avancée via la BI, le Machine Learning et l'IA. Interface IT / métiers, je pilote des équipes Data (Engineering, BI, Science) en environnement cloud hybride.</p>
+        <p>Data et recherche procèdent chez moi d'un <strong>même métier</strong> : construire des modèles à partir de données pour expliquer et prévoir. Je l'exerce à deux échelles — les systèmes d'information et les usages métiers en entreprise ; les dynamiques macroéconomiques en recherche, via les <strong>techniques modernes de modélisation bayésienne</strong>. Chaque terrain nourrit l'autre : la discipline du chercheur et le sens de l'exécution du praticien.</p>
+      </div>
+      <div class="aside">
+        <h4>Formation</h4>
+        <ul>
+          <li><b>PhD — Macroéconomie internationale</b><span>Université de Lille · 2017–2022</span></li>
+          <li><b>M2 MASERATI — Statistique &amp; Économétrie</b><span>Université Paris-Est Créteil (UPEC) · 2004–2005</span></li>
+        </ul>
+        <h4 style="margin-top:22px">Langues</h4>
+        <ul>
+          <li><b>Français</b><span>Langue maternelle</span></li>
+          <li><b>Anglais</b><span>Professionnel</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="idx mono">02</span><h2>Expérience</h2></div>
+    <div class="tl">
+
+      <div class="job">
+        <div class="when"><span class="dot"></span>Depuis juil. 2025<span class="loc">Paris · sur site</span></div>
+        <div>
+          <h3>Responsable Pôle Data — DSI</h3>
+          <div class="co">Groupe Empruntis <em>· Courtage / Fintech</em></div>
+          <ul>
+            <li>Pilotage des grands projets de création et de restructuration de plateformes data, et management d'équipes transverses (ingénieurs, analysts, scientists).</li>
+            <li>Conception de l'architecture, du datawarehouse et de la gouvernance (qualité, cartographie, sécurité, RGPD).</li>
+            <li>Déploiement d'outils de Dataviz et de modèles de Machine Learning au service des métiers.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span class="dot"></span>janv. 2023 – juil. 2025<span class="loc">Plenitude (Eni) · Énergie</span></div>
+        <div>
+          <h3>Data Team Lead</h3>
+          <div class="co">Plenitude (Eni) <em>· Énergie</em></div>
+          <ul>
+            <li>Management et structuration de l'équipe Data &amp; BI (rôles, priorisation, montée en compétence).</li>
+            <li>Extension du Data Warehouse et des standards analytiques au périmètre B2B ; définition de la roadmap Data Opérations avec la Direction.</li>
+            <li>Renforcement de la gouvernance et fiabilisation des KPI.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span class="dot"></span>juil. 2021 – déc. 2022<span class="loc">Plenitude (Eni) · Énergie</span></div>
+        <div>
+          <h3>Senior Data &amp; Business Analyst</h3>
+          <div class="co">Plenitude (Eni) <em>· Énergie</em></div>
+          <ul>
+            <li>Conception et mise en œuvre d'un Data Warehouse Opérations Client (facturation, impayés, performance).</li>
+            <li>Modernisation de la stack et automatisation de la production des reportings, dont les supports CODIR.</li>
+            <li>Modèles de prédiction d'impayés et analyses avancées de facturation → promotion au poste de responsable d'équipe.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span class="dot"></span>juin 2017 – juin 2021<span class="loc">Suresnes · Assurance</span></div>
+        <div>
+          <h3>Senior Data — Analyst / Scientist</h3>
+          <div class="co">Direct Assurance (AXA) <em>· Assurance</em></div>
+          <ul>
+            <li>Pilotage de la performance commerciale et opérationnelle par la data sur tout le cycle de vie client (acquisition, fidélisation, sinistralité, résiliation).</li>
+            <li>DataMart de suivi opérationnel, dashboards et reportings automatisés (R Markdown, R Shiny) ; modèles de prévision des contacts pour le dimensionnement des équipes.</li>
+            <li class="award">Contribution déterminante aux deux titres « Élu Service Client de l'Année » (ESCDA).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span class="dot"></span>juil. 2013 – juin 2017<span class="loc">Suresnes · Télécom</span></div>
+        <div>
+          <h3>Senior Data Analyst</h3>
+          <div class="co">SFR <em>· Télécom · Efficacité opérationnelle</em></div>
+          <ul>
+            <li>Modèles de prévision avancés (séries temporelles, GAM, Machine Learning) en Python et R ; modèles économétriques (GLM, VAR, panel).</li>
+            <li>Algorithmes d'optimisation du dimensionnement production/effectifs (qualité de service vs coûts) ; budgets de production et analyse d'écarts.</li>
+            <li>Recrutement, formation et management d'une équipe de 4 data scientists.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span class="dot"></span>mai 2006 – juin 2013<span class="loc">Paris · Télécom</span></div>
+        <div>
+          <h3>Data Analyst</h3>
+          <div class="co">SFR <em>· Reporting &amp; Analytics</em></div>
+          <ul>
+            <li>Conception d'un DataMart transverse (CRM, flux courrier, fichiers de production) pour le suivi des KPI et l'analyse du parcours client.</li>
+            <li>Modélisation du comportement client (GAM, R), études d'impact (pricing, campagnes, promotions) en R et SAS.</li>
+            <li>Outils statistiques et d'optimisation pour la décision (SPSS Modeler) et simulation de dimensionnement.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span class="dot"></span>avr. – déc. 2005<span class="loc">Paris · Banque</span></div>
+        <div>
+          <h3>Stagiaire Data Scientist — Engagements &amp; Risques</h3>
+          <div class="co">LCL <em>· Banque · Équipe Grands Projets</em></div>
+          <ul>
+            <li>Système expert d'aide à la décision pour l'octroi et la tarification de crédits aux PME.</li>
+            <li>Modèles de scoring et de prédiction du risque, backtesting et analyses quantitatives.</li>
+            <li>Outil de diagnostics en langage naturel pour les analystes crédit.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="competences">
+  <div class="wrap">
+    <div class="sec-head"><span class="idx mono">03</span><h2>Compétences &amp; stack</h2></div>
+    <div class="skills">
+      <div class="skillcard">
+        <h4>Data Strategy &amp; Management</h4>
+        <div class="tags"><span class="tag">Roadmap Data</span><span class="tag">Cartographie des actifs</span><span class="tag">Gouvernance</span><span class="tag">RGPD</span><span class="tag">KPI stratégiques</span></div>
+      </div>
+      <div class="skillcard">
+        <h4>Architecture &amp; Platform</h4>
+        <div class="tags"><span class="tag">Azure (ADLS)</span><span class="tag">GCP</span><span class="tag">AWS</span><span class="tag">Snowflake</span><span class="tag">Databricks</span><span class="tag">MS Fabric</span><span class="tag">BigQuery</span><span class="tag">Lakehouse</span></div>
+      </div>
+      <div class="skillcard">
+        <h4>Data Engineering &amp; Integration</h4>
+        <div class="tags"><span class="tag">dbt</span><span class="tag">Airbyte</span><span class="tag">NiFi</span><span class="tag">Orchestration</span><span class="tag">API REST</span><span class="tag">Raw/Bronze/Silver/Gold</span></div>
+      </div>
+      <div class="skillcard">
+        <h4>Analytics &amp; BI</h4>
+        <div class="tags"><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Looker Studio</span><span class="tag">R Markdown</span><span class="tag">R Shiny</span><span class="tag">Streamlit</span></div>
+      </div>
+      <div class="skillcard">
+        <h4>Data Science, ML &amp; IA</h4>
+        <div class="tags"><span class="tag">Python</span><span class="tag">R</span><span class="tag">SQL</span><span class="tag">Scoring / prévision</span><span class="tag">Snowflake ML</span><span class="tag">Snowpark</span></div>
+      </div>
+      <div class="skillcard">
+        <h4>Leadership &amp; Transformation</h4>
+        <div class="tags"><span class="tag">Management d'équipes Data</span><span class="tag">Coordination IT / métiers</span><span class="tag">Conduite du changement</span><span class="tag">Culture data-driven</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH / PUBLICATIONS -->
+<section id="recherche">
+  <div class="wrap">
+    <div class="sec-head"><span class="idx mono">04</span><h2>Recherche &amp; publications</h2></div>
+    <p class="lead">Travaux en macroéconomie internationale — modélisation des cycles économiques par méthodes bayésiennes et analyse des structures entrées-sorties.</p>
+
+    <div class="pub">
+      <div><div class="venue">Economic Modelling · Elsevier</div><div class="yr">Vol. 118 · janvier 2023</div></div>
+      <div>
+        <h3>World Prices and Business Cycles in a Small Open Input–Output Economy</h3>
+        <p>Modèle multisectoriel d'économie ouverte à structure entrées-sorties réaliste. Montre que les modèles usuels surestiment l'impact des chocs de termes de l'échange dans les pays émergents, et analyse les effets amortisseurs liés à l'usage des biens d'exportation.</p>
+        <div class="links"><a href="https://doi.org/10.1016/j.econmod.2022.106100" target="_blank" rel="noopener">DOI : 10.1016/j.econmod.2022.106100</a><a href="https://www.sciencedirect.com/science/article/abs/pii/S0264999322003376" target="_blank" rel="noopener">ScienceDirect</a></div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div><div class="venue">Thèse de doctorat</div><div class="yr">Université de Lille · 2022</div></div>
+      <div>
+        <h3>Business Cycles Drivers in Emerging Countries: Three Essays</h3>
+        <p>Trois essais sur les moteurs des cycles économiques dans les pays émergents, dont l'article publié dans <em>Economic Modelling</em>. Directeur : F. Tripier.</p>
+        <div class="links"><a href="https://theses.hal.science/tel-04130251/document" target="_blank" rel="noopener">Thèse intégrale (HAL)</a></div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div><div class="venue">Travaux en cours</div><div class="yr">Affiliation CLERSE · Lille</div></div>
+      <div>
+        <h3>Architecture de la croissance sectorielle française (2000–2021)</h3>
+        <p>Modèle entrées-sorties à compensation de valeur (value-clearing) et décomposition de Shapley pour analyser la contribution des secteurs à la croissance française. <span class="todo">Statut à confirmer</span></p>
+        <div class="links"><a href="#" class="todo">lien à venir</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS / CODE -->
+<section id="projets">
+  <div class="wrap">
+    <div class="sec-head"><span class="idx mono">05</span><h2>Projets &amp; code</h2></div>
+    <p class="lead">Une sélection de travaux techniques et de recherche. Renseigne ton pseudo GitHub <span class="todo">@github</span> et je relie chaque carte à son dépôt.</p>
+    <div class="projects">
+      <div class="proj">
+        <div class="top"><h3>Modèle SOE entrées-sorties</h3><span class="lang mono">Recherche</span></div>
+        <p>Modèle d'économie ouverte multisectorielle à structure entrées-sorties (chocs de prix mondiaux, cycles). Code et calibration de l'article <em>Economic Modelling</em>.</p>
+        <a class="repo" href="https://theses.hal.science/tel-04130251/document" target="_blank" rel="noopener">Voir la publication →</a>
+      </div>
+      <div class="proj">
+        <div class="top"><h3>Dashboards Streamlit / Snowflake</h3><span class="lang mono">Python · SQL</span></div>
+        <p>Tableaux de bord de performance construits en Streamlit in Snowflake, du modèle de données (Bronze/Silver/Gold) à la mise à disposition.</p>
+        <a class="repo" href="#">Dépôt <span class="todo">lien</span></a>
+      </div>
+      <div class="proj">
+        <div class="top"><h3>Reporting automatisé R</h3><span class="lang mono">R · Shiny</span></div>
+        <p>Automatisation de reportings et d'analyses récurrentes (R Markdown, R Shiny) pour un pilotage opérationnel fiable et réactif.</p>
+        <a class="repo" href="#">Dépôt <span class="todo">lien</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <h2>Discutons</h2>
+        <p>Ouvert aux opportunités de direction Data et aux échanges autour de l'économie appliquée.</p>
+      </div>
+      <div class="contact-links">
+        <a class="clink" href="mailto:atefkhe@aol.com">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          atefkhe@aol.com
+        </a>
+        <a class="clink" href="https://www.linkedin.com/in/atef-khelifi-8357a840/" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM10 9h3.7v1.7h.05c.5-.95 1.8-1.95 3.65-1.95 3.9 0 4.6 2.5 4.6 5.8V21h-4v-5.2c0-1.25 0-2.85-1.75-2.85s-2 1.35-2 2.75V21h-4z"/></svg>
+          LinkedIn
+        </a>
+        <a class="clink" href="https://doi.org/10.1016/j.econmod.2022.106100" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Publication (Economic Modelling)
+        </a>
+      </div>
+    </div>
+    <footer>
+      <span>© <span id="yr"></span> Atef Khelifi</span>
+      <span class="mono">Data &amp; Économie</span>
+    </footer>
+  </div>
+</section>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  let stored = null;
+  try { stored = localStorage.getItem('theme'); } catch(e){}
+  if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+  btn.addEventListener('click', () => {
+    const isDark = getComputedStyle(root).getPropertyValue('--paper').trim().startsWith('#0');
+    const current = root.getAttribute('data-theme');
+    let next;
+    if (current === 'dark') next = 'light';
+    else if (current === 'light') next = 'dark';
+    else next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch(e){}
+  });
+  document.getElementById('cvBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    alert("Ajoute ici le lien vers ton CV en PDF (par ex. cv-atef-khelifi.pdf une fois le fichier en ligne).");
+  });
+</script>
+</body>
+</html>
