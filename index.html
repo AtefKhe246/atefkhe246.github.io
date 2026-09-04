@@ -96,6 +96,22 @@
   .fact .l{font-size:12.5px;color:var(--ink-soft);margin-top:6px}
   @media (max-width:720px){.facts-in{grid-template-columns:repeat(2,1fr)}.fact:nth-child(2){border-right:none}.fact:nth-child(1),.fact:nth-child(2){border-bottom:1px solid var(--line)}}
 
+  /* ===== SECTION LE LIVRE ===== */
+  .book{background:linear-gradient(180deg,var(--surface-2),var(--paper));border-bottom:1px solid var(--line)}
+  .book-in{max-width:var(--maxw);margin:0 auto;padding:64px 24px;display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:center}
+  .book-cover{position:relative}
+  .book-cover img{width:100%;border-radius:6px;box-shadow:0 18px 50px -12px rgba(14,22,38,.45);display:block}
+  .book-badge{position:absolute;top:-12px;left:-12px;background:var(--signal);color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;box-shadow:0 6px 18px -4px color-mix(in srgb,var(--signal) 60%,transparent)}
+  .book-body .kicker{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--signal-ink);font-weight:600;margin:0 0 10px}
+  .book-body h2{font-size:clamp(1.5rem,3.2vw,2.1rem);line-height:1.15;margin:0 0 8px;color:var(--ink)}
+  .book-body .subtitle{font-size:1.05rem;color:var(--ink-soft);font-style:italic;margin:0 0 20px}
+  .book-body p.pitch{font-size:1.02rem;color:var(--ink-soft);line-height:1.6;margin:0 0 16px;max-width:52ch}
+  .book-points{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:9px;max-width:52ch}
+  .book-points li{display:flex;gap:10px;align-items:flex-start;font-size:.97rem;color:var(--ink-soft)}
+  .book-points li::before{content:"→";color:var(--signal);font-weight:700;flex-shrink:0}
+  .book-cta{display:flex;gap:12px;flex-wrap:wrap}
+  @media (max-width:820px){.book-in{grid-template-columns:1fr;gap:36px}.book-cover{max-width:240px;margin:0 auto}}
+
   section{padding:74px 0;border-bottom:1px solid var(--line)}
   .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:38px}
   .sec-head .idx{font-size:13px;color:var(--ink-faint)}
@@ -181,11 +197,12 @@
   <div class="nav-in">
     <div class="brand">Atef Khelifi <span>· Data &amp; Économie</span></div>
     <nav class="nav-links">
+      <a href="#livre">Le livre</a>
       <a href="#apropos">Profil</a>
       <a href="#experience">Expérience</a>
       <a href="#competences">Compétences</a>
       <a href="#recherche">Recherche</a>
-      <a href="#projets">Projets</a>
+      <a href="#projets">Code &amp; données</a>
       <a href="#contact">Contact</a>
       <button class="theme-btn" id="themeToggle" aria-label="Changer de thème">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -216,8 +233,9 @@
       <p class="bridge"><b>Un même fil conducteur :</b> la modélisation quantitative. Le chercheur nourrit le praticien, et réciproquement.</p>
 
       <div class="cta-row">
-        <a class="btn primary" href="#contact">Me contacter</a>
-        <a class="btn ghost" href="#" id="cvBtn">Télécharger le CV (PDF)</a>
+        <a class="btn primary" href="#livre">Découvrir le livre</a>
+        <a class="btn ghost" href="#contact">Me contacter</a>
+        <a class="btn ghost" href="CV_Atef_Khelifi.pdf" id="cvBtn" target="_blank" rel="noopener" download>Télécharger le CV (PDF)</a>
       </div>
     </div>
 
@@ -240,7 +258,31 @@
   </div>
 </div>
 
-<div class="note wrap"><b>Note (visible seulement par toi) :</b> il reste à ajouter ta <b>photo</b>, tes <b>liens GitHub</b> (dépôts) et à confirmer le statut de l'article « croissance sectorielle française ». Dis-moi et je complète.</div>
+<!-- LE LIVRE -->
+<section id="livre" class="book">
+  <div class="book-in">
+    <div class="book-cover">
+      <span class="book-badge">Nouveau · 2026</span>
+      <img src="couverture_livre.png" alt="Couverture — L'Audit de l'économie française">
+    </div>
+    <div class="book-body">
+      <p class="kicker">Ouvrage · Diagnostic &amp; plan de redressement</p>
+      <h2>L'Audit de l'économie française</h2>
+      <p class="subtitle">Diagnostic · Causes · Plan de redressement</p>
+      <p class="pitch">Réduire les dépenses, c'est aller contre Keynes ; relever l'impôt, c'est presser un citron déjà pressé. Reste la croissance. Ce livre montre, chiffres à l'appui, qu'elle ne se heurte à aucune barrière technique — seulement à un <b>défaut de coordination</b>. Et propose un mécanisme concret pour la débloquer.</p>
+      <ul class="book-points">
+        <li>Un modèle multisectoriel calibré sur les données de l'INSEE (2000–2024).</li>
+        <li>La France comparée à son « double » : ce qui a réellement décroché, secteur par secteur.</li>
+        <li>Une proposition originale : le <b>contrat de coordination</b>, relance par l'offre.</li>
+        <li>Chaque résultat sourcé et reproductible.</li>
+      </ul>
+      <div class="book-cta">
+        <a class="btn primary" href="https://librairie.bod.fr/laudit-de-leconomie-francaise-atef-khelifi-9782322633586" target="_blank" rel="noopener">Commander l'ouvrage →</a>
+        <a class="btn ghost" href="#projets">Voir le code &amp; les données</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section id="apropos">
@@ -406,7 +448,16 @@
 <section id="recherche">
   <div class="wrap">
     <div class="sec-head"><span class="idx mono">04</span><h2>Recherche &amp; publications</h2></div>
-    <p class="lead">Travaux en macroéconomie internationale — modélisation des cycles économiques par méthodes bayésiennes et analyse des structures entrées-sorties.</p>
+    <p class="lead">Travaux en économie appliquée et en macroéconomie : modélisation multisectorielle, diagnostic de l'économie française et propositions de réforme.</p>
+
+    <div class="pub">
+      <div><div class="venue">Ouvrage · Books on Demand</div><div class="yr">ISBN 978-2-322-63358-6</div></div>
+      <div>
+        <h3>L'Audit de l'économie française — Diagnostic, causes et plan de redressement</h3>
+        <p>Un diagnostic complet de l'économie française et un plan de redressement, adossés à un modèle multisectoriel à structure entrées-sorties appliqué aux données INSEE. Une contribution destinée au débat public, résolument apolitique.</p>
+        <div class="links"><a href="https://librairie.bod.fr/laudit-de-leconomie-francaise-atef-khelifi-9782322633586" target="_blank" rel="noopener">Voir l'ouvrage (BoD) →</a></div>
+      </div>
+    </div>
 
     <div class="pub">
       <div><div class="venue">Economic Modelling · Elsevier</div><div class="yr">Vol. 118 · janvier 2023</div></div>
@@ -425,38 +476,29 @@
         <div class="links"><a href="https://theses.hal.science/tel-04130251/document" target="_blank" rel="noopener">Thèse intégrale (HAL)</a></div>
       </div>
     </div>
-
-    <div class="pub">
-      <div><div class="venue">Travaux en cours</div><div class="yr">Affiliation CLERSE · Lille</div></div>
-      <div>
-        <h3>Architecture de la croissance sectorielle française (2000–2021)</h3>
-        <p>Modèle entrées-sorties à compensation de valeur (value-clearing) et décomposition de Shapley pour analyser la contribution des secteurs à la croissance française. <span class="todo">Statut à confirmer</span></p>
-        <div class="links"><a href="#" class="todo">lien à venir</a></div>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- PROJECTS / CODE -->
 <section id="projets">
   <div class="wrap">
-    <div class="sec-head"><span class="idx mono">05</span><h2>Projets &amp; code</h2></div>
-    <p class="lead">Une sélection de travaux techniques et de recherche. Renseigne ton pseudo GitHub <span class="todo">@github</span> et je relie chaque carte à son dépôt.</p>
+    <div class="sec-head"><span class="idx mono">05</span><h2>Le modèle : code &amp; données</h2></div>
+    <p class="lead">Le socle reproductible de l'ouvrage <em>L'Audit de l'économie française</em> et de l'article <em>Economic Modelling</em> : le code du modèle et les jeux de données, pour des analyses vérifiables.</p>
     <div class="projects">
       <div class="proj">
-        <div class="top"><h3>Modèle SOE entrées-sorties</h3><span class="lang mono">Recherche</span></div>
-        <p>Modèle d'économie ouverte multisectorielle à structure entrées-sorties (chocs de prix mondiaux, cycles). Code et calibration de l'article <em>Economic Modelling</em>.</p>
-        <a class="repo" href="https://theses.hal.science/tel-04130251/document" target="_blank" rel="noopener">Voir la publication →</a>
+        <div class="top"><h3>Modèle multisectoriel</h3><span class="lang mono">R · Python</span></div>
+        <p>Le modèle d'équilibre multisectoriel à structure entrées-sorties qui sous-tend le diagnostic de l'ouvrage et l'article <em>Economic Modelling</em> (chocs de prix, cycles, scénarios).</p>
+        <a class="repo" href="https://github.com/AtefKhe246" target="_blank" rel="noopener">Code sur GitHub →</a>
       </div>
       <div class="proj">
-        <div class="top"><h3>Dashboards Streamlit / Snowflake</h3><span class="lang mono">Python · SQL</span></div>
-        <p>Tableaux de bord de performance construits en Streamlit in Snowflake, du modèle de données (Bronze/Silver/Gold) à la mise à disposition.</p>
-        <a class="repo" href="#">Dépôt <span class="todo">lien</span></a>
+        <div class="top"><h3>Données — INSEE (2000–2024)</h3><span class="lang mono">Données</span></div>
+        <p>Séries et jeux de données (comptes nationaux et sectoriels) mobilisés pour le diagnostic productif et la projection des trajectoires de dette et de déficit.</p>
+        <a class="repo" href="https://github.com/AtefKhe246" target="_blank" rel="noopener">Jeux de données →</a>
       </div>
       <div class="proj">
-        <div class="top"><h3>Reporting automatisé R</h3><span class="lang mono">R · Shiny</span></div>
-        <p>Automatisation de reportings et d'analyses récurrentes (R Markdown, R Shiny) pour un pilotage opérationnel fiable et réactif.</p>
-        <a class="repo" href="#">Dépôt <span class="todo">lien</span></a>
+        <div class="top"><h3>Reproductibilité</h3><span class="lang mono">R · Notebooks</span></div>
+        <p>Scripts et chaînes reproductibles permettant de rejouer les résultats et les scénarios de réforme présentés dans le livre.</p>
+        <a class="repo" href="https://github.com/AtefKhe246" target="_blank" rel="noopener">Notebooks →</a>
       </div>
     </div>
   </div>
@@ -508,10 +550,6 @@
     else next = isDark ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     try { localStorage.setItem('theme', next); } catch(e){}
-  });
-  document.getElementById('cvBtn').addEventListener('click', (e) => {
-    e.preventDefault();
-    alert("Ajoute ici le lien vers ton CV en PDF (par ex. cv-atef-khelifi.pdf une fois le fichier en ligne).");
   });
 </script>
 </body>
